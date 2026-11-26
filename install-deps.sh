@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# install-deps.sh — installs build and runtime dependencies for cykler-caelestia
+# install-deps.sh — installs build and runtime dependencies for caelestia-reforged
 #
 # Usage:
 #   ./install-deps.sh                    # everything, asking before each step
@@ -200,4 +200,4 @@ fi
 
 echo
 echo "==> Done."
-echo "Next: clone cykler-caelestia and run the cmake build steps from the README."
+echo "Next: clone caelestia-shell and run the cmake build steps from the README."

@@ -1,25 +1,23 @@
-<h1 align=center>cykler-caelestia</h1>
+<h1 align=center>Caelestia-Reforged</h1>
 
 <div align=center>
 
-A personal fork of [caelestia-dots/shell](https://github.com/caelestia-dots/shell) with the features we wanted on top of it.
+A personal fork of [caelestia-dots/shell](https://github.com/caelestia-dots/shell) that combines the
+best of [cykler-caelestia](https://github.com/cykler01/cykler-caelestia) and
+[vacuited/shell](https://github.com/vacuited/shell), with original additions on top.
 
-https://github.com/user-attachments/assets/83bc3015-1b8b-4b44-988c-f8a59c1dafeb
-
-**[▶ Watch the full showcase](https://cykler.dev/projects/caelestia)**
-
-![GitHub last commit](https://img.shields.io/github/last-commit/cykler01/cykler-caelestia?style=flat-square&labelColor=101418&color=9ccbfb)
-![GitHub release](https://img.shields.io/github/v/release/cykler01/cykler-caelestia?style=flat-square&labelColor=101418&color=9ccbfb)
-![GitHub issues](https://img.shields.io/github/issues/cykler01/cykler-caelestia?style=flat-square&labelColor=101418&color=9ccbfb)
-![GitHub repo size](https://img.shields.io/github/repo-size/cykler01/cykler-caelestia?style=flat-square&labelColor=101418&color=9ccbfb)
-![GitHub license](https://img.shields.io/github/license/cykler01/cykler-caelestia?style=flat-square&labelColor=101418&color=9ccbfb)
+![GitHub last commit](https://img.shields.io/github/last-commit/samakshkambxj/caelestia-shell?style=flat-square&labelColor=101418&color=9ccbfb)
+![GitHub issues](https://img.shields.io/github/issues/samakshkambxj/caelestia-shell?style=flat-square&labelColor=101418&color=9ccbfb)
+![GitHub repo size](https://img.shields.io/github/repo-size/samakshkambxj/caelestia-shell?style=flat-square&labelColor=101418&color=9ccbfb)
+![GitHub license](https://img.shields.io/github/license/samakshkambxj/caelestia-shell?style=flat-square&labelColor=101418&color=9ccbfb)
 
 </div>
 
 > [!WARNING]
-> **Optimised for our systems first.** The fork is built and tested around our own setups, but
-> it should work on most other systems. If you run into an error, please open an
-> [issue](https://github.com/cykler01/cykler-caelestia/issues).
+> **A fork of a fork.** Most of the feature base comes from
+> [cykler-caelestia](https://github.com/cykler01/cykler-caelestia); this fork is maintained by
+> samakshkambxj and is not affiliated with upstream Caelestia. Report issues to
+> [this repository](https://github.com/samakshkambxj/caelestia-shell/issues), not to upstream.
 
 <details open>
 <summary><h2>Showcase</h2></summary>
@@ -42,10 +40,10 @@ https://github.com/user-attachments/assets/83bc3015-1b8b-4b44-988c-f8a59c1dafeb
 </details>
 
 <details>
-<summary><h2>Features added in this fork</h2></summary>
+<summary><h2>Features inherited from cykler-caelestia</h2></summary>
 
-Every feature below is either our own work on top of upstream, or upstream work this fork
-has pulled in and built on.
+Every feature below comes from the cykler-caelestia base, which is itself upstream work plus
+cykler's additions. The demo links point to the original author's documentation.
 
 | Feature | What it does | Where | Docs |
 |---|---|---|---|
@@ -150,15 +148,15 @@ loads KDE Connect and starts its daemon with it.
 > first - this fork provides the same package and they conflict.
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/cykler01/cykler-caelestia/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/samakshkambxj/caelestia-shell/main/bootstrap.sh | bash
 ```
 
-That clones the repo into `./cykler-caelestia` and hands off to `install.sh`, which installs the
-dependencies and then builds and installs the shell. Pass flags through after `--`, e.g. `curl -fsSL https://raw.githubusercontent.com/cykler01/cykler-caelestia/main/bootstrap.sh | bash -s -- -y`. Or do the same two steps by hand:
+That clones the repo into `./caelestia-shell` and hands off to `install.sh`, which installs the
+dependencies and then builds and installs the shell. Pass flags through after `--`, e.g. `curl -fsSL https://raw.githubusercontent.com/samakshkambxj/caelestia-shell/main/bootstrap.sh | bash -s -- -y`. Or do the same two steps by hand:
 
 ```sh
-git clone https://github.com/cykler01/cykler-caelestia.git
-cd cykler-caelestia
+git clone https://github.com/samakshkambxj/caelestia-shell.git
+cd caelestia-shell
 ./install.sh
 ```
 
@@ -167,10 +165,10 @@ skip AUR packages, or `-y` to skip the prompts. `--gui` asks all of the same que
 instead, and `--with login-screen` also installs the SDDM theme (see `./install.sh --list-addons`
 for what else is on offer). Then start it with `caelestia shell -d`.
 
-Nix users can try the upstream flake that this fork keeps (although we haven't tested it ourselves):
+Nix users can try the flake this fork keeps (although we haven't tested it ourselves):
 
 ```sh
-nix run github:cykler01/cykler-caelestia#with-cli
+nix run github:samakshkambxj/caelestia-shell#with-cli
 ```
 
 ### Keeping up to date
@@ -195,6 +193,12 @@ This fork is only worth anything because of the people below.
 - **[Caelestia](https://github.com/caelestia-dots/shell)** - the shell itself, by
   [@soramanew](https://github.com/soramanew) and the upstream contributors. Everything here is their
   work with our additions on top.
+- **[cykler-caelestia](https://github.com/cykler01/cykler-caelestia)** - the feature base of this
+  fork, by [@cykler01](https://github.com/cykler01).
+- **[vacuited/shell](https://github.com/vacuited/shell)** - source of the Wallpaper Engine, desktop
+  lyrics, shimeji, GPU visualiser, and Focus suite ports, by
+  [@vacuited](https://github.com/vacuited). It also builds on
+  [MiDnight Shell](https://github.com/dim-ghub/midnight-shell).
 - **[imnuclr](https://github.com/imnuclr)** - being the co-developer of this project and helping lots especially with the visuals and UI.
 - **Battery power management** - based on [PR #1](https://github.com/cykler01/cykler-caelestia/pull/1) by [@PixelKhaos](https://github.com/PixelKhaos).
 - **Displays page** - based on [PR #1629](https://github.com/caelestia-dots/shell/pull/1629) by
@@ -212,4 +216,4 @@ GPL-3.0, inherited from [upstream](https://github.com/caelestia-dots/shell).
 
 ## Star history
 
-[![Star History Chart](https://api.star-history.com/svg?repos=cykler01/cykler-caelestia&type=Date)](https://star-history.com/#cykler01/cykler-caelestia&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=samakshkambxj/caelestia-shell&type=Date)](https://star-history.com/#samakshkambxj/caelestia-shell&Date)

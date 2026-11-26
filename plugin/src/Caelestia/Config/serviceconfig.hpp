@@ -69,7 +69,7 @@ class SoundEffectsConfig : public settings::ObjectNode {
 class ServiceConfig : public settings::ObjectNode {
     CONFIG_NODE(ServiceConfig, settings::ObjectNode)
 
-    // Where the shell's git checkout lives, for the Update page (empty: ~/Documents/Github/cykler-caelestia)
+    // Where the shell's git checkout lives, for the Update page (empty: ~/Documents/Github/caelestia-shell)
     CONFIG_GLOBAL_PROPERTY(QString, repoPath, {})
     // Branch the Update page tracks
     CONFIG_GLOBAL_PROPERTY(QString, updateBranch, u"main"_s)

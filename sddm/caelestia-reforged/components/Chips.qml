@@ -5,7 +5,7 @@ import QtQuick
 // greeter's QML_XHR_ALLOW_FILE_READ=1 (install-theme.sh); without it the
 // machine's name stands in. the network's own name and its signal are not in
 // sysfs at all, so they come from /run/caelestia-sddm/net.conf, which
-// caelestia-sddm-net.timer keeps current; without that the chip knows only
+// caelestia-reforged-sddm-net.timer keeps current; without that the chip knows only
 // that wi-fi is up. the keymap joins when there is more than one. one
 // connected group like the lock's, round at its ends and tight in between
 Row {

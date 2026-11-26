@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# install.sh — full first-time install of cykler-caelestia (Arch Linux)
+# install.sh — full first-time install of caelestia-reforged (Arch Linux)
 #
 # Usage:
 #   ./install.sh                        # install dependencies, then build and install
@@ -26,7 +26,7 @@
 
 set -euo pipefail
 
-REPO_URL="https://github.com/cykler01/cykler-caelestia.git"
+REPO_URL="https://github.com/samakshkambxj/caelestia-shell.git"
 
 INSTALL_DEPS=true
 REPO_ONLY=false
@@ -60,7 +60,7 @@ addon_summary() {
 # what it writes that the shell's own install would not
 addon_paths() {
     case "$1" in
-        login-screen) echo "/usr/share/sddm/themes/cykler-caelestia, /etc/sddm.conf.d, /etc/systemd/system/caelestia-sddm-net.{service,timer}" ;;
+        login-screen) echo "/usr/share/sddm/themes/caelestia-reforged, /etc/sddm.conf.d, /etc/systemd/system/caelestia-reforged-sddm-net.{service,timer}" ;;
         *) echo "" ;;
     esac
 }
@@ -136,7 +136,7 @@ done
 
 # the window follows these; in a terminal they are just comments on stdout
 phase() {
-    [[ ${CYKLER_INSTALLER:-0} == 1 ]] && printf '@@cykler:phase %s\n' "$1"
+    [[ ${REFORGED_INSTALLER:-0} == 1 ]] && printf '@@reforged:phase %s\n' "$1"
     return 0
 }
 
@@ -209,7 +209,7 @@ SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Never from inside the window. runner.py runs this on a pty, so -t 1 is true
 # there and the check below would happily open a second installer on top of the
 # one already driving it -- and then exec away from the runner watching us
-if [[ ${CYKLER_INSTALLER:-0} == 1 ]]; then
+if [[ ${REFORGED_INSTALLER:-0} == 1 ]]; then
     WITH_GUI=0
 fi
 
@@ -229,7 +229,7 @@ if [[ $WITH_GUI -eq 1 ]]; then
         echo "quickshell is not installed yet, so the install carries on in the terminal."
     else
         echo "Opening the installer window (./install.sh --terminal stays here)."
-        CYKLER_INSTALL_ARGS="${GUI_ARGS[*]}" exec qs -p "$SRC/installer.qml"
+        REFORGED_INSTALL_ARGS="${GUI_ARGS[*]}" exec qs -p "$SRC/installer.qml"
     fi
 fi
 

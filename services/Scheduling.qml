@@ -14,7 +14,7 @@ import qs.utils
 Singleton {
     id: root
 
-    readonly property string repoPath: GlobalConfig.services.repoPath || `${Paths.home}/Documents/Github/cykler-caelestia`
+    readonly property string repoPath: GlobalConfig.services.repoPath || `${Paths.home}/Documents/Github/caelestia-shell`
     readonly property string script: `${repoPath}/scheduling/install-rules.sh`
 
     // The ananicy unit found on this system, empty where none is installed

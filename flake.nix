@@ -1,5 +1,5 @@
 {
-  description = "Desktop shell for Caelestia dots";
+  description = "Caelestia-Reforged - a Caelestia Shell fork";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

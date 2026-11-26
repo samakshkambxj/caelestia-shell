@@ -58,7 +58,7 @@ if [[ -z $THEME || ! -f "$DIR/theme.conf" ]]; then
 fi
 
 # ours, or somebody else's
-if ! grep -qs '^Theme-Id=cykler-caelestia$\|^Name=cykler-caelestia$' "$DIR/metadata.desktop"; then
+if ! grep -qsiE '^Theme-Id=caelestia-reforged$|^Name=caelestia-reforged$' "$DIR/metadata.desktop"; then
     [[ $CHECK -eq 1 ]] && echo "other $THEME"
     exit 0
 fi

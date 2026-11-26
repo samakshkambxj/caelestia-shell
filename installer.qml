@@ -85,7 +85,7 @@ ShellRoot {
         })
 
     // what install.sh was given besides --gui
-    readonly property var given: (Quickshell.env("CYKLER_INSTALL_ARGS") || "").split(" ").filter(a => a !== "")
+    readonly property var given: (Quickshell.env("REFORGED_INSTALL_ARGS") || "").split(" ").filter(a => a !== "")
 
     // the flags of whatever was switched off, starting from the command line
     property var off: root.baseChoices.filter(c => !!c.flag && (c.off === true || root.given.join(" ").indexOf(c.flag) !== -1)).map(c => c.flag)
@@ -217,7 +217,7 @@ ShellRoot {
         if (c.required)
             return c.why ?? c.sub;
         if (c.addon === "login-screen")
-            return root.sddmTheme === "" ? "Installs the SDDM theme, from your next login" : root.sddmTheme === "cykler-caelestia" ? "Updates the SDDM theme you already have" : "Replaces " + root.sddmTheme + " as your SDDM theme";
+            return root.sddmTheme === "" ? "Installs the SDDM theme, from your next login" : root.sddmTheme === "caelestia-reforged" ? "Updates the SDDM theme you already have" : "Replaces " + root.sddmTheme + " as your SDDM theme";
         if (c.flag === "--repo-only" && !root.qsGit && root.isOn(c))
             return "Installs quickshell-git, which the shell needs";
         if (c.module === "plugin" && !root.isOn(c))
@@ -369,7 +369,7 @@ ShellRoot {
     FloatingWindow {
         id: win
 
-        title: "Install cykler-caelestia"
+        title: "Install Caelestia-Reforged"
         implicitHeight: welcome.implicitHeight + Theme.dp(64)
         implicitWidth: Math.min(side.width + Theme.dp(44) + Math.round((win.implicitHeight - Theme.dp(32) - sky.footHeight) * 16 / 9), (win.screen ? win.screen.width : 1920) - Theme.dp(80))
         // one size: Hyprland floats a window that cannot be resized
@@ -471,7 +471,7 @@ ShellRoot {
 
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
-                        text: "cykler-caelestia"
+                        text: "Caelestia-Reforged"
                         color: Theme.text
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.fontHeadlineLg

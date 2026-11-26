@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # install-theme.sh [dest] [--fingerprint | --no-fingerprint] [--no-network]
-# [--current] — installs cykler-caelestia's sddm theme. needs root: install.sh
+# [--current] — installs caelestia-reforged's sddm theme. needs root: install.sh
 # runs it through sudo, and running it by hand updates the theme alone.
 # --fingerprint lets the login screen take a fingerprint (two lines in
 # /etc/pam.d/sddm), --no-fingerprint takes them out; without either, pam is
@@ -14,7 +14,7 @@
 set -euo pipefail
 
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-DEST=/usr/share/sddm/themes/cykler-caelestia
+DEST=/usr/share/sddm/themes/caelestia-reforged
 FINGER=""
 NETWORK=on
 CURRENT=0
@@ -37,7 +37,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 install -d -m755 "$DEST"
-cp -r "$SRC/sddm/cykler-caelestia/." "$DEST/"
+cp -r "$SRC/sddm/caelestia-reforged/." "$DEST/"
 
 # the greeter runs as its own user, so the font it draws in rides along with
 # the theme rather than in anyone's home
@@ -60,7 +60,7 @@ GREETER_CONF="$SDDM_CONF_D/caelestia-greeter.conf"
 if ! grep -qs '^[[:space:]]*GreeterEnvironment=.' /etc/sddm.conf $(ls "$SDDM_CONF_D"/*.conf 2>/dev/null | grep -vx "$GREETER_CONF"); then
     install -d -m755 "$SDDM_CONF_D"
     printf '%s\n' \
-        "# written by cykler-caelestia's install-theme.sh: the greeter decodes the live" \
+        "# written by caelestia-reforged's install-theme.sh: the greeter decodes the live" \
         "# wallpaper in software rather than waking every GPU to look for a decoder," \
         "# and reads the battery and the network state for its chips" \
         "[General]" \
@@ -97,8 +97,8 @@ done
 # reader and ends at pam_deny so faillock never counts it. marked, so it comes out again
 FP_HELPER="$DEST/pam-empty-password"
 install -Dm755 "$SRC/sddm/pam-empty-password" "$FP_HELPER"
-FP_BEGIN="# >>> cykler-caelestia: fingerprint login"
-FP_END="# <<< cykler-caelestia: fingerprint login"
+FP_BEGIN="# >>> caelestia-reforged: fingerprint login"
+FP_END="# <<< caelestia-reforged: fingerprint login"
 pam_module() {
     local d
     for d in /usr/lib/security /usr/lib64/security /lib/security /lib/x86_64-linux-gnu/security; do
@@ -137,12 +137,12 @@ fi
 # every twenty seconds, where the chip picks them up; --no-network takes it
 # out again and the chip is left knowing only whether wi-fi is up at all
 NET_PROBE="$DEST/net-probe.sh"
-NET_UNIT="${CAELESTIA_SYSTEMD_DIR:-/etc/systemd/system}/caelestia-sddm-net.service"
-NET_TIMER="${CAELESTIA_SYSTEMD_DIR:-/etc/systemd/system}/caelestia-sddm-net.timer"
+NET_UNIT="${CAELESTIA_SYSTEMD_DIR:-/etc/systemd/system}/caelestia-reforged-sddm-net.service"
+NET_TIMER="${CAELESTIA_SYSTEMD_DIR:-/etc/systemd/system}/caelestia-reforged-sddm-net.timer"
 if [[ $NETWORK == off ]]; then
     rm -f "$NET_PROBE"
     if command -v systemctl >/dev/null && [[ -e $NET_TIMER ]]; then
-        systemctl disable --now caelestia-sddm-net.timer >/dev/null 2>&1 || true
+        systemctl disable --now caelestia-reforged-sddm-net.timer >/dev/null 2>&1 || true
         rm -f "$NET_UNIT" "$NET_TIMER"
         systemctl daemon-reload || true
     else
@@ -154,9 +154,9 @@ else
     if command -v systemctl >/dev/null; then
         install -d -m755 "$(dirname "$NET_UNIT")"
         printf '%s\n' \
-            "# written by cykler-caelestia's install-theme.sh" \
+            "# written by caelestia-reforged's install-theme.sh" \
             "[Unit]" \
-            "Description=Wi-Fi name and signal for the cykler-caelestia login screen" \
+            "Description=Wi-Fi name and signal for the caelestia-reforged login screen" \
             "ConditionPathExists=$NET_PROBE" \
             "" \
             "[Service]" \
@@ -167,7 +167,7 @@ else
             "ExecStart=$NET_PROBE /run/caelestia-sddm/net.conf" \
             > "$NET_UNIT"
         printf '%s\n' \
-            "# written by cykler-caelestia's install-theme.sh" \
+            "# written by caelestia-reforged's install-theme.sh" \
             "[Unit]" \
             "Description=Keep the login screen's wi-fi chip current" \
             "" \
@@ -181,7 +181,7 @@ else
             > "$NET_TIMER"
         chmod 644 "$NET_UNIT" "$NET_TIMER"
         systemctl daemon-reload
-        systemctl enable --now caelestia-sddm-net.timer >/dev/null
+        systemctl enable --now caelestia-reforged-sddm-net.timer >/dev/null
     else
         echo "install-theme.sh: no systemctl here, so nothing will keep /run/caelestia-sddm/net.conf current -- the wi-fi chip will show only whether wi-fi is up" >&2
     fi
@@ -204,9 +204,9 @@ printf '\n# set by install-theme.sh: whether /etc/pam.d/sddm takes a fingerprint
 if [[ $CURRENT -eq 1 ]]; then
     name=$(basename "$DEST")
     install -d -m755 "$SDDM_CONF_D"
-    THEME_CONF="$SDDM_CONF_D/zz-cykler-caelestia.conf"
+    THEME_CONF="$SDDM_CONF_D/zz-caelestia-reforged.conf"
     printf '%s\n' \
-        "# written by cykler-caelestia's install-theme.sh. named to sort last:" \
+        "# written by caelestia-reforged's install-theme.sh. named to sort last:" \
         "# sddm lets the last conf.d file to set Current win" \
         "[Theme]" \
         "Current=$name" \

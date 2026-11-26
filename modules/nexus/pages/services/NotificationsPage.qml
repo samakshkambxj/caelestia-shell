@@ -216,7 +216,7 @@ PageBase {
         ToggleRow {
             last: true
             text: Tr.tr("Repo update available")
-            subtext: Tr.tr("New commit on cykler01/cykler-caelestia")
+            subtext: Tr.tr("New commit on samakshkambxj/caelestia-shell")
             checked: GlobalConfig.utilities.toasts.repoUpdateAvailable
             onToggled: GlobalConfig.utilities.toasts.repoUpdateAvailable = checked
         }

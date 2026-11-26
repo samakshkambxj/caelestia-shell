@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# runner.py -- runs cykler-caelestia's own install.sh in a pty, outside the
+# runner.py -- runs caelestia-reforged's own install.sh in a pty, outside the
 # shell, so a reload or a restart of the shell cannot take the install down
 # halfway through.
 #
@@ -29,11 +29,11 @@ ANSI = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]|\x1b\][^\x07\x1b]*(?:\x07|\x1b\\)|\x
 PASSWORD = re.compile(r"(?i)(password|passphrase)[^\n]{0,80}:\s*$")
 YESNO = re.compile(r"[\[(]\s*([YyNn])\s*/\s*([YyNn])\s*[\])]\s*[:?]?\s*$")
 TEXTISH = re.compile(r"[:?>]\s*$")
-# install.sh says where it is when CYKLER_INSTALLER is set. a marker is looked
+# install.sh says where it is when REFORGED_INSTALLER is set. a marker is looked
 # for anywhere in the line, not just at its start: a prompt that is still
 # waiting leaves its text on the line, and the next marker lands on the end of
 # it -- matching only at the start would drop the phase and log the marker
-MARK = re.compile(r"@@cykler:(\w+)[ \t]*([^\n]*)")
+MARK = re.compile(r"@@reforged:(\w+)[ \t]*([^\n]*)")
 # ninja counts its own work, which is the only honest progress here
 NINJA = re.compile(r"^\[(\d+)/(\d+)\]")
 # pacman's running total, for the long stretch where it downloads
@@ -44,11 +44,11 @@ PACMAN = re.compile(r"^\s*\(\s*(\d+)\s*/\s*(\d+)\s*\)")
 WRAPPER = r"""
 command -v sudo >/dev/null 2>&1 || exit 96
 sudo -v -p '[caelestia] password for %u: ' || exit 97
-printf '@@cykler:authok\n'
+printf '@@reforged:authok\n'
 ( while sleep 50; do sudo -n -v 2>/dev/null || exit 0; done ) &
 keep=$!
 trap 'kill "$keep" 2>/dev/null; sudo -k 2>/dev/null' EXIT
-cd "$CYKLER_SRC" || exit 98
+cd "$REFORGED_SRC" || exit 98
 [ -f ./install.sh ] || exit 98
 bash ./install.sh "$@"
 """
@@ -128,15 +128,15 @@ class Run:
         if pid == 0:
             env = dict(os.environ)
             env.update({
-                "CYKLER_INSTALLER": "1",
-                "CYKLER_SRC": os.path.abspath(self.a.src),
+                "REFORGED_INSTALLER": "1",
+                "REFORGED_SRC": os.path.abspath(self.a.src),
                 "TERM": "dumb",
                 "PAGER": "cat",
                 "SYSTEMD_PAGER": "",
                 "GIT_PAGER": "cat",
             })
             os.chdir(self.dir)
-            os.execvpe("bash", ["bash", "-c", WRAPPER, "cykler-install"] + self.a.install_args, env)
+            os.execvpe("bash", ["bash", "-c", WRAPPER, "reforged-install"] + self.a.install_args, env)
         self.pid = pid
         self.fd = fd
         fcntl.ioctl(fd, termios.TIOCSWINSZ, struct.pack("HHHH", 50, 132, 0, 0))

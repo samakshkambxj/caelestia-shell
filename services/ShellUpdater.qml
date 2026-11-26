@@ -12,7 +12,7 @@ import qs.utils
 Singleton {
     id: root
 
-    readonly property string repoPath: GlobalConfig.services.repoPath || `${Paths.home}/Documents/Github/cykler-caelestia`
+    readonly property string repoPath: GlobalConfig.services.repoPath || `${Paths.home}/Documents/Github/caelestia-shell`
     readonly property string branch: GlobalConfig.services.updateBranch || "main"
     readonly property string script: `${repoPath}/scripts/shell-update.sh`
 

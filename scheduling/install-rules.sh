@@ -25,7 +25,7 @@ set -euo pipefail
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # overridable so the install can be tried somewhere other than /etc
 ANANICY_D="${CAELESTIA_ANANICY_D:-/etc/ananicy.d}"
-RULE_NAME=99-cykler-caelestia.rules
+RULE_NAME=99-caelestia-reforged.rules
 DEST="$ANANICY_D/$RULE_NAME"
 # kept in step with the rule file, which is the thing that actually sets it
 TARGET_NICE=-6

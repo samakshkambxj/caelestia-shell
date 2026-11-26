@@ -13,7 +13,7 @@ import qs.utils
 Singleton {
     id: root
 
-    readonly property string repo: "cykler01/cykler-caelestia"
+    readonly property string repo: "samakshkambxj/caelestia-shell"
     readonly property string branch: "main"
 
     // Title of the "new commit" toast; the toast list recognises it to open the Updates page when it is clicked

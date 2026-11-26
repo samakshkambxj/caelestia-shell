@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
-# bootstrap.sh — one-line installer: clones cykler-caelestia and hands off to install.sh.
+# bootstrap.sh — one-line installer: clones caelestia-reforged and hands off to install.sh.
 #
 # Usage (from anywhere, needs nothing checked out first):
-#   curl -fsSL https://raw.githubusercontent.com/cykler01/cykler-caelestia/main/bootstrap.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/samakshkambxj/caelestia-shell/main/bootstrap.sh | bash
 #
 # Pass install.sh's own flags through after --:
 #   curl -fsSL .../bootstrap.sh | bash -s -- -y
@@ -16,8 +16,8 @@
 
 set -euo pipefail
 
-REPO_URL="https://github.com/cykler01/cykler-caelestia.git"
-DEST="cykler-caelestia"
+REPO_URL="https://github.com/samakshkambxj/caelestia-shell.git"
+DEST="caelestia-shell"
 
 # Same checks install.sh itself makes, done here too so a clone (the assets folder alone
 # makes this a real download) isn't wasted on a machine that was going to fail anyway.

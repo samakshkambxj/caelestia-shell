@@ -10,7 +10,7 @@ import Quickshell.Io
 Singleton {
     id: root
 
-    readonly property string dir: (Quickshell.env("XDG_RUNTIME_DIR") || "/tmp") + "/cykler-install"
+    readonly property string dir: (Quickshell.env("XDG_RUNTIME_DIR") || "/tmp") + "/reforged-install"
     readonly property string src: Qt.resolvedUrl("..").toString().replace("file://", "").replace(/\/$/, "")
 
     // "" idle, else the phase the runner last reported

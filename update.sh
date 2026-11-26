@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# update.sh — updates cykler-caelestia, optionally pulling in upstream changes first
+# update.sh — updates caelestia-reforged, optionally pulling in upstream changes first
 #
 # Usage:
 #   ./update.sh                 # pull the fork's own commits, then rebuild/install
@@ -33,7 +33,7 @@ confirm() {
 
 # --- Sanity check: must be run from inside the repo ---
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    echo "Error: not inside a git repository. Run this from inside your cykler-caelestia clone." >&2
+    echo "Error: not inside a git repository. Run this from inside your caelestia-reforged clone." >&2
     exit 1
 fi
 

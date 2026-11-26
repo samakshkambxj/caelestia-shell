@@ -1,0 +1,15 @@
+[SddmGreeterTheme]
+Name=Caelestia-Reforged
+Description=The Caelestia-Reforged lock screen, as the login screen
+Author=cykler01; fork maintained by samakshkambxj
+Copyright=GPL-3.0
+License=GPL-3.0
+Type=sddm-theme
+Version=1.0
+Website=https://github.com/samakshkambxj/caelestia-shell
+Screenshot=
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=
+Theme-API=2.0
+QtVersion=6

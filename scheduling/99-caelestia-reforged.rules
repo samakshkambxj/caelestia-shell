@@ -1,4 +1,4 @@
-# Scheduling priority for the quickshell process that runs cykler-caelestia.
+# Scheduling priority for the quickshell process that runs caelestia-reforged.
 #
 # The stock ananicy rulesets (cachyos-ananicy-rules, among others) classify
 # "qs" as a background Service - nice 10, ionice best-effort 6 - in

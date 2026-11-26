@@ -141,7 +141,7 @@ PageBase {
 
         InfoRow {
             label: Tr.tr("Rule file")
-            subtext: "/etc/ananicy.d/99-cykler-caelestia.rules"
+            subtext: "/etc/ananicy.d/99-caelestia-reforged.rules"
             value: Scheduling.ruleInstalled ? Tr.tr("Installed") : Tr.tr("Not installed")
         }
 

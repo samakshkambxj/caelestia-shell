@@ -5,7 +5,7 @@
 # of the network nor the strength of the link is in sysfs: wext's
 # /proc/net/wireless is empty on most current drivers, and NetworkManager
 # keeps the name in /etc/NetworkManager/system-connections, which is root's
-# alone. so this runs as root -- every caelestia-sddm-net.timer, which
+# alone. so this runs as root -- every caelestia-reforged-sddm-net.timer, which
 # install-theme.sh sets up -- and leaves them where the greeter can read them:
 # a flat ini in /run, world readable, holding nothing secret. the name of the
 # network, the strength as a percentage, and when it was written, so a greeter
@@ -80,7 +80,7 @@ install -d -m755 "$(dirname "$OUT")"
 TMP=$(mktemp "$OUT.XXXXXX")
 trap 'rm -f "$TMP"' EXIT
 {
-    echo "# written by cykler-caelestia's net-probe.sh for the login screen's chips"
+    echo "# written by caelestia-reforged's net-probe.sh for the login screen's chips"
     echo "iface=$iface"
     echo "state=$state"
     echo "ssid=$ssid"

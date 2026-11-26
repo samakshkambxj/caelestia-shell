@@ -1929,7 +1929,7 @@ QtObject {
             title: Tr.tr("Notifications"),
             section: Tr.tr("Toast events"),
             label: Tr.tr("Repo update available"),
-            subtext: Tr.tr("New commit on cykler01/cykler-caelestia")
+            subtext: Tr.tr("New commit on samakshkambxj/caelestia-shell")
         },
 
         {
