@@ -1289,6 +1289,59 @@ QtObject {
 
         {
             page: "panels",
+            path: [13],
+            title: Tr.tr("Desktop"),
+            section: Tr.tr("Shimeji characters"),
+            label: Tr.tr("Enable Shimeji"),
+            subtext: Tr.tr("Animated desktop pets that walk along the screen edges"),
+            keywords: "pet pets mascot character shimeji desktop"
+        },
+        {
+            page: "panels",
+            path: [13],
+            title: Tr.tr("Desktop"),
+            section: Tr.tr("Shimeji characters"),
+            label: Tr.tr("Auto-hide"),
+            subtext: Tr.tr("Hide the pets while a window is open"),
+            keywords: "hide window pet shimeji auto"
+        },
+        {
+            page: "panels",
+            path: [13],
+            title: Tr.tr("Desktop"),
+            section: Tr.tr("Shimeji characters"),
+            label: Tr.tr("Hide in game mode"),
+            subtext: Tr.tr("Hide the pets while game mode is on"),
+            keywords: "game mode hide pet shimeji"
+        },
+        {
+            page: "panels",
+            path: [13],
+            title: Tr.tr("Desktop"),
+            section: Tr.tr("Shimeji characters"),
+            label: Tr.tr("Size"),
+            keywords: "scale size pet shimeji"
+        },
+        {
+            page: "panels",
+            path: [13],
+            title: Tr.tr("Desktop"),
+            section: Tr.tr("Shimeji characters"),
+            label: Tr.tr("Count per screen"),
+            keywords: "count amount number pet shimeji"
+        },
+        {
+            page: "panels",
+            path: [13],
+            title: Tr.tr("Desktop"),
+            section: Tr.tr("Shimeji characters"),
+            label: Tr.tr("Pack path"),
+            subtext: Tr.tr("A folder of PNG frames, or a .zip of one"),
+            keywords: "pack path folder zip sprite frames pet shimeji"
+        },
+
+        {
+            page: "panels",
             path: [14],
             title: Tr.tr("Lock screen"),
             section: Tr.tr("Clock"),

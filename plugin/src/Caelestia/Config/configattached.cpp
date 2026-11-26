@@ -84,6 +84,7 @@ CONFIG_ATTACHED_GETTER(ServiceConfig, services)
 CONFIG_ATTACHED_GETTER(SessionConfig, session)
 CONFIG_ATTACHED_GETTER(SidebarConfig, sidebar)
 CONFIG_ATTACHED_GETTER(UtilitiesConfig, utilities)
+CONFIG_ATTACHED_GETTER(ShimejiConfig, shimeji)
 CONFIG_ATTACHED_GETTER(UserPaths, paths)
 
 #undef CONFIG_ATTACHED_GETTER

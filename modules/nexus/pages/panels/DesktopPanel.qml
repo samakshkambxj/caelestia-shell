@@ -212,5 +212,76 @@ PageBase {
                 }
             }
         }
+
+        // ---------- Shimeji ----------
+        SectionHeader {
+            text: Tr.tr("Shimeji characters")
+        }
+
+        ToggleRow {
+            first: true
+            Layout.fillWidth: true
+            text: Tr.tr("Enable Shimeji")
+            subtext: Tr.tr("Animated desktop pets that walk along the screen edges")
+            checked: GlobalConfig.shimeji.enabled
+            onToggled: GlobalConfig.shimeji.enabled = checked
+        }
+
+        ToggleRow {
+            Layout.topMargin: Tokens.spacing.extraSmall / 2 - parent.spacing
+            Layout.fillWidth: true
+            text: Tr.tr("Auto-hide")
+            subtext: Tr.tr("Hide the pets while a window is open")
+            checked: GlobalConfig.shimeji.autoHide
+            onToggled: GlobalConfig.shimeji.autoHide = checked
+            enabled: GlobalConfig.shimeji.enabled
+        }
+
+        ToggleRow {
+            Layout.topMargin: Tokens.spacing.extraSmall / 2 - parent.spacing
+            Layout.fillWidth: true
+            text: Tr.tr("Hide in game mode")
+            subtext: Tr.tr("Hide the pets while game mode is on")
+            checked: GlobalConfig.utilities.gameMode.disableShimeji
+            onToggled: GlobalConfig.utilities.gameMode.disableShimeji = checked
+            enabled: GlobalConfig.shimeji.enabled
+        }
+
+        SliderRow {
+            Layout.topMargin: Tokens.spacing.extraSmall / 2 - parent.spacing
+            Layout.fillWidth: true
+            label: Tr.tr("Size")
+            value: (GlobalConfig.shimeji.scale - 0.5) / 1.5
+            valueLabel: Math.round(GlobalConfig.shimeji.scale * 100) + "%"
+            from: 0
+            to: 1
+            stepSize: 0.01
+            onMoved: v => GlobalConfig.shimeji.scale = 0.5 + v * 1.5
+            enabled: GlobalConfig.shimeji.enabled
+        }
+
+        StepperRow {
+            Layout.topMargin: Tokens.spacing.extraSmall / 2 - parent.spacing
+            Layout.fillWidth: true
+            label: Tr.tr("Count per screen")
+            value: GlobalConfig.shimeji.count
+            from: 1
+            to: 9999
+            stepSize: 1
+            onMoved: v => GlobalConfig.shimeji.count = v
+            enabled: GlobalConfig.shimeji.enabled
+        }
+
+        TextFieldRow {
+            last: true
+            Layout.topMargin: Tokens.spacing.extraSmall / 2 - parent.spacing
+            Layout.fillWidth: true
+            label: Tr.tr("Pack path")
+            subtext: Tr.tr("A folder of PNG frames, or a .zip of one")
+            value: GlobalConfig.shimeji.path
+            placeholderText: "root:/assets/shimeji/pusheen/"
+            onEditingFinished: v => GlobalConfig.shimeji.path = v
+            enabled: GlobalConfig.shimeji.enabled
+        }
     }
 }

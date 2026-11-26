@@ -27,6 +27,7 @@ qml_module(caelestia-config
         overviewconfig.hpp
         serviceconfig.hpp
         sessionconfig.hpp
+        shimejiconfig.hpp
         sidebarconfig.hpp
         userpaths.hpp
         utilitiesconfig.hpp

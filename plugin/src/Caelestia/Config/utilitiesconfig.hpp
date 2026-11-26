@@ -117,6 +117,7 @@ class UtilitiesCards : public settings::ObjectNode {
 class UtilitiesGameMode : public settings::ObjectNode {
     CONFIG_NODE(UtilitiesGameMode, settings::ObjectNode)
 
+    CONFIG_PROPERTY(bool, disableShimeji, true)
     CONFIG_PROPERTY(QVariantMap, options,
         vmap({
             { u"animations:enabled"_s, 0 },

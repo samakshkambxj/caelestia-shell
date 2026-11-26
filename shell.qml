@@ -25,7 +25,9 @@ import qs.modules.background
 import qs.modules.bottomtext
 import qs.modules.drawers
 import qs.modules.lock
+import qs.modules.shimeji
 import qs.daemons
+import qs.utils
 
 ShellRoot {
     id: root
@@ -78,6 +80,14 @@ ShellRoot {
     NotepadPopout {}
     Lock {
         id: lock
+    }
+
+    Variants {
+        model: Quickshell.screens.filter(s => (GlobalConfig.shimeji?.enabled ?? false) && (GlobalConfig.shimeji?.path?.length ?? 0) > 0 && !Strings.testRegexList(GlobalConfig.shimeji?.excludedScreens ?? [], s.name))
+
+        Shimeji {
+            shimejiCount: GlobalConfig.shimeji?.count ?? 1
+        }
     }
 
     // Daemons
